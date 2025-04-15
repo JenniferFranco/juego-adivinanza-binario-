@@ -9,8 +9,20 @@ import random;
     
 # def transformar_a_binario (): #transformar el número secreto a binario
     
-# def verificar_intento (): #comparar el número secreto y darle ayuda al usuario (si el num es mayor o menor) 
-    
+def verificar_intento (num_decimal): 
+    num_usuario = 0;
+    while num_decimal != num_usuario:
+        num_usuario = int(input('¿Qué número crees que es?: '))
+        if num_usuario == num_decimal:
+            print('¡Acertaste!');
+        elif num_usuario > num_decimal:    
+            print('Incorrecto, el número es menor: ')
+        else:
+            print('Incorrecto, el número es mayor: ')
+         
+            
+        
+            
             
 #programa principal
 print('Juego de Adivinanza en Binario');
@@ -18,8 +30,8 @@ print('Convertí el siguiente número binario a decimal:')
 num_secreto = random.randint(1,10); #establecer limite
 print(num_secreto)
 
-num = int(input('¿Qué número crees que es?: ')); 
+# num = int(input('¿Qué número crees que es?: ')); 
 
 #transformar_a_binario ()
 
-#verificar_intento ()
+verificar_intento (num_secreto);
