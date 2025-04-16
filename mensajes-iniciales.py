@@ -14,6 +14,8 @@ def mostrar_mensajes_iniciales():
     print(f"{Fore.GREEN}¡Bienvenido al juego!{Style.RESET_ALL}")
     numero = input(f"{Fore.BLUE}Por favor, ingresa un número: {Style.RESET_ALL}")
     
+    #Una vez que tenemos un número válido, lo convertimos a entero utilizando int() y lo retornamos
+    return int(numero)
 
 #llamamos a la función y mostramos el número ingresado por el usuario
 numero_ingresado = mostrar_mensajes_iniciales()
