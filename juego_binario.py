@@ -4,14 +4,35 @@ from colorama import init, Fore, Style
 
 #desarrollo de funciones
 
+#elije dificultad el usuario
+def elegir_dificultad():
+    print("Seleccioná un nivel de dificultad:")
+    print("1 - Fácil ")
+    print("2 - Medio ")
+    print("3 - Difícil ")
+    opcion = input("Elegí una opción (1, 2 o 3): ")
+
+    if opcion == "1":
+        return 1, 10
+    elif opcion == "2":
+        return 1, 50
+    elif opcion == "3":
+        return 1, 100
+    else:
+        print("Opción no válida. se usara el nivel 1")
+        return 1, 10
+
 #mensaje de bienvenido al juego e indicaciones
 def mostrar_mensajes_iniciales():
-    print(f"{Fore.GREEN}¡Bienvenido al Juego de Adivinanza en Binario!{Style.RESET_ALL}")
-    print(f"Convertí el siguiente número {Fore.GREEN}binario{Style.RESET_ALL} a {Fore.BLUE}decimal{Style.RESET_ALL}:")
+    inicio, fin = elegir_dificultad()  # acá pedís el nivel
+    numero_decimal = generar_numero_secreto(inicio, fin)  # usás ese nivel para generar el número
+    numero_binario = transformar_a_binario(numero_decimal)
+    print(numero_binario)
+    verificar_intento(numero_decimal)
 
 #generar un número decimal al asar 
-def generar_numero_secreto ():  
-        num_secreto = random.randint(1,10); #establecer limite
+def generar_numero_secreto (inicio, fin):  
+        num_secreto = random.randint(inicio, fin); 
         return num_secreto   
     
 #transformar el número generado en decimal a binario
@@ -45,5 +66,5 @@ mostrar_mensajes_iniciales()
 numero_decimal = generar_numero_secreto()
 numero_binario = transformar_a_binario(numero_decimal)
 print(numero_binario)
-
 numero_usuario = verificar_intento(numero_decimal)
+
