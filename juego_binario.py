@@ -1,11 +1,13 @@
 # librerias
 import random
 from colorama import init, Fore, Style
-init ()
-    
-#desarrollo de funciones
+init()
 
-#elije dificultad el usuario
+# desarrollo de funciones
+
+# elije dificultad el usuario
+
+
 def elegir_dificultad():
     print("Seleccioná un nivel de dificultad:")
     print("1 - Fácil ")
@@ -23,21 +25,25 @@ def elegir_dificultad():
         print("Opción no válida. se usara el nivel 1")
         return 1, 10
 
-#mensaje de bienvenido al juego e indicaciones
+# mensaje de bienvenido al juego e indicaciones
+
+
 def mostrar_mensajes_iniciales():
     print(f"{Fore.GREEN}¡Bienvenido al Juego de Adivinanza en Binario!{Style.RESET_ALL}")
-    print(f"Convertí el siguiente número {Fore.GREEN}binario{Style.RESET_ALL} a {Fore.BLUE}decimal{Style.RESET_ALL}:")
-   
-    inicio, fin = elegir_dificultad()  # acá pedís el nivel
-    
-   
+    print(
+        f"Convertí el siguiente número {Fore.GREEN}binario{Style.RESET_ALL} a {Fore.BLUE}decimal{Style.RESET_ALL}:")
 
-#generar un número decimal al asar 
-def generar_numero_secreto (inicio, fin):  
-        num_secreto = random.randint(inicio, fin); 
-        return num_secreto   
-    
-#transformar el número generado en decimal a binario
+    return elegir_dificultad()  # acá pedís el nivel
+
+
+# generar un número decimal al asar
+def generar_numero_secreto(inicio, fin):
+    num_secreto = random.randint(inicio, fin)
+    return num_secreto
+
+# transformar el número generado en decimal a binario
+
+
 def transformar_a_binario(numero_ingresado):
     num_binario = ""  # se inicializa una cadena vacia para ir insertando los números
     dividendo = numero_ingresado
@@ -67,8 +73,9 @@ def verificar_intento(num_decimal):
 
 
 # programa principal
-mostrar_mensajes_iniciales()
-numero_decimal = generar_numero_secreto(inicio, fin)  # usás ese nivel para generar el número
+inicio, fin = mostrar_mensajes_iniciales()
+# usás ese nivel para generar el número
+numero_decimal = generar_numero_secreto(inicio, fin)
 numero_binario = transformar_a_binario(numero_decimal)
 print(numero_binario)
 verificar_intento(numero_decimal)
